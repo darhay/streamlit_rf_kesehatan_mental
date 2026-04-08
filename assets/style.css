@@ -1,0 +1,320 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Serif+Display&display=swap');
+
+/* ── Root & Reset ── */
+:root {
+    --red:       #E8473F;
+    --red-light: #fdecea;
+    --red-mid:   #f7c5c2;
+    --green:     #2E9B6E;
+    --green-bg:  #e8f5ef;
+    --yellow:    #F5A623;
+    --yellow-bg: #fef6e4;
+    --blue:      #3B82F6;
+    --blue-bg:   #eff6ff;
+    --gray-50:   #f9fafb;
+    --gray-100:  #f3f4f6;
+    --gray-200:  #e5e7eb;
+    --gray-400:  #9ca3af;
+    --gray-600:  #4b5563;
+    --gray-800:  #1f2937;
+    --white:     #ffffff;
+    --radius:    14px;
+    --shadow:    0 4px 20px rgba(0,0,0,0.08);
+    --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
+}
+
+html, body, [data-testid="stAppViewContainer"] {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    background: var(--gray-50) !important;
+}
+
+/* ── Hide Streamlit chrome ── */
+#MainMenu, footer, header { visibility: hidden; }
+[data-testid="stHeader"] { display: none; }
+
+/* ── Page wrapper ── */
+.block-container {
+    padding-top: 2.5rem !important;
+    padding-bottom: 3rem !important;
+    max-width: 680px !important;
+}
+
+/* ── Progress bar ── */
+.progress-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 28px;
+}
+.progress-step {
+    height: 6px;
+    border-radius: 99px;
+    flex: 1;
+    background: var(--gray-200);
+    transition: background .4s;
+}
+.progress-step.active   { background: var(--red); }
+.progress-step.done     { background: var(--red-mid); }
+
+/* ── Page titles ── */
+h1 {
+    font-family: 'DM Serif Display', serif !important;
+    font-size: 2rem !important;
+    color: var(--gray-800) !important;
+    margin-bottom: 4px !important;
+    line-height: 1.2 !important;
+}
+.step-caption {
+    font-size: 0.82rem;
+    color: var(--gray-400);
+    font-weight: 500;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+
+/* ── Card ── */
+/* .main-card {
+    background: var(--white);
+    padding: 32px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--gray-200);
+    margin-bottom: 20px;
+} */
+
+/* ── Section label inside card ── */
+.section-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin: 24px 0 8px;
+}
+.section-label:first-child { margin-top: 0; }
+
+/* ── Divider ── */
+.q-divider {
+    border: none;
+    border-top: 1px solid var(--gray-100);
+    margin: 20px 0;
+}
+
+/* ── Radio & select labels ── */
+[data-testid="stRadio"] label,
+[data-testid="stSelectbox"] label,
+[data-testid="stSlider"] label {
+    font-size: 0.93rem !important;
+    font-weight: 600 !important;
+    color: var(--gray-800) !important;
+}
+[data-testid="stRadio"] > div {
+    gap: 6px !important;
+}
+[data-testid="stRadio"] > div > label {
+    background: var(--gray-50);
+    border: 1.5px solid var(--gray-200);
+    border-radius: 8px;
+    padding: 8px 14px !important;
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+    color: var(--gray-600) !important;
+    cursor: pointer;
+    transition: all .2s;
+}
+[data-testid="stRadio"] > div > label:hover {
+    border-color: var(--red);
+    color: var(--red) !important;
+}
+[data-testid="stRadio"] > div > label[data-baseweb="radio"]:has(input:checked) {
+    background: var(--red-light);
+    border-color: var(--red);
+    color: var(--red) !important;
+}
+
+/* ── Primary button ── */
+.stButton > button {
+    width: 100% !important;
+    background: var(--red) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 10px !important;
+    padding: 14px 24px !important;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    letter-spacing: .02em !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 14px rgba(232,71,63,0.35) !important;
+    transition: all .2s !important;
+    margin-top: 8px !important;
+}
+.stButton > button:hover {
+    background: #c73b34 !important;
+    box-shadow: 0 6px 20px rgba(232,71,63,0.45) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* ── Result page ── */
+.result-hero {
+    background: linear-gradient(135deg, #fff8f8 0%, #fff 100%);
+    border: 1.5px solid var(--red-mid);
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-bottom: 16px;
+    text-align: center !important;
+}
+.result-hero * {
+    text-align: center !important;
+}
+.result-icon {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+    text-align: center !important;
+    display: block;
+}
+.result-label {
+    display: inline-block;
+    background: var(--red-light);
+    color: var(--red);
+    font-weight: 700;
+    font-size: 1.15rem;
+    padding: 6px 20px;
+    border-radius: 99px;
+    margin-bottom: 12px;
+}
+.result-label.normal {
+    background: var(--green-bg);
+    color: var(--green);
+}
+.result-label.stres {
+    background: var(--yellow-bg);
+    color: var(--yellow);
+}
+.result-label.cemas {
+    background: var(--blue-bg);
+    color: var(--blue);
+}
+.result-desc {
+    font-size: 0.9rem;
+    color: var(--gray-600);
+    line-height: 1.6;
+    max-width: 420px;
+    margin: 0 auto;
+}
+
+/* ── Stats row ── */
+.stats-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+.stat-card {
+    flex: 1;
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--gray-800);
+}
+.stat-label {
+    font-size: 0.75rem;
+    color: var(--gray-400);
+    font-weight: 500;
+    margin-top: 2px;
+}
+
+/* ── Confusion matrix table ── */
+.cm-wrap {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow);
+    margin-bottom: 16px;
+}
+.cm-title {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--gray-800);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.cm-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.78rem;
+}
+.cm-table th {
+    background: var(--gray-50);
+    color: var(--gray-600);
+    font-weight: 600;
+    padding: 8px 10px;
+    text-align: center;
+    border: 1px solid var(--gray-200);
+}
+.cm-table td {
+    padding: 8px 10px;
+    text-align: center;
+    border: 1px solid var(--gray-200);
+    font-weight: 600;
+    color: var(--gray-600);
+}
+.cm-table td.diagonal {
+    background: #dbeafe;
+    color: #1d4ed8;
+    font-weight: 800;
+}
+.cm-table td.row-label {
+    background: var(--gray-50);
+    color: var(--gray-600);
+    font-weight: 600;
+    text-align: left;
+    font-size: 0.73rem;
+}
+
+/* ── Label badges ── */
+.badge-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+}
+.badge {
+    padding: 5px 14px;
+    border-radius: 99px;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+.badge-normal  { background: var(--green-bg);  color: var(--green); }
+.badge-stres   { background: var(--yellow-bg); color: var(--yellow); }
+.badge-cemas   { background: var(--blue-bg);   color: var(--blue); }
+.badge-depresi { background: var(--red-light); color: var(--red); }
+
+/* ── Info box ── */
+.info-box {
+    background: var(--gray-50);
+    border-left: 3px solid var(--gray-200);
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.84rem;
+    color: var(--gray-600);
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+/* ── Selectbox ── */
+[data-testid="stSelectbox"] > div > div {
+    border-radius: 8px !important;
+    border-color: var(--gray-200) !important;
+    font-size: 0.9rem !important;
+}
