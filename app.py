@@ -59,9 +59,9 @@ if st.session_state.step == 1:
     with col5:
         tidur = st.selectbox("Jam tidur per hari", ["< 5 jam", "5–6 jam", "6–7 jam", "> 7 jam"])
     with col6:
-        olahraga = st.selectbox("Frekuensi olahraga", ["Tidak pernah", "1–2 kali", "3–4 kali", "> 4 kali"])
+        olahraga = st.selectbox("Frekuensi olahraga per minggu", ["Tidak pernah", "1–2 kali", "3–4 kali", "> 4 kali"])
 
-    if st.button("Selanjutnya →"):
+    if st.button("Selanjutnya"):
         st.session_state.dataA = [usia, gender, semester, tempat, tidur, olahraga]
         st.session_state.step = 2
         st.rerun()
@@ -169,7 +169,7 @@ elif st.session_state.step == 2:
     st.markdown('<hr class="q-divider">', unsafe_allow_html=True)
     q36 = q("Perasaan saya mudah tersentuh oleh hasil atau penilaian dari tugas digital.", "q36")
 
-    if st.button("Lihat Hasil Prediksi →"):
+    if st.button("Lihat Hasil Prediksi"):
         st.session_state.dataB = [
             scale[q9], scale[q10], scale[q11],
             scale[q12], scale[q13], scale[q14], scale[q15],
@@ -268,11 +268,11 @@ elif st.session_state.step == 3:
             <div class="stat-label">Keyakinan Model</div>
         </div>
         <div class="stat-card">
-            <div class="stat-value">62.5%</div>
+            <div class="stat-value">61.29%</div>
             <div class="stat-label">Akurasi Model</div>
         </div>
         <div class="stat-card">
-            <div class="stat-value">313</div>
+            <div class="stat-value">310</div>
             <div class="stat-label">Data Latih</div>
         </div>
     </div>
